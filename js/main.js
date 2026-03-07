@@ -31,9 +31,18 @@ document.querySelector("#amp-reg-form").addEventListener("submit", event => {
     try {
         const newProject = new Project(document.querySelector("#amp-title").value)
         addProject(newProject);
+        renderProjects();
 
     } catch (error) {
         console.error(error);
     }
             console.log(projects);
 });
+
+const projectList = document.querySelector("#project-list");
+const renderProjects = () => {
+    projects.forEach(project => {
+            projectList.insertAdjacentHTML(`beforeend`, `<li>${project.title}</li>`);
+    })
+    
+}
