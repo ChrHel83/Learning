@@ -1,0 +1,10 @@
+{
+    [
+        "id" : "1",
+    "risk" : "Fall till nivå lägre än 2 meter"
+    ],
+    [
+        "id":"2",
+        "risk": "Explosiva varor"
+    ]
+}

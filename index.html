@@ -12,6 +12,35 @@
   <h3>Här kan jag prova lite olika saker</h3>
   <h6>En liten test till</h6>
   </div>
+<script type "text/JavaScript">
+  class Foretag{
+    constructor(foretagsNamn){
+      this.foretagsNamn = foretagsNamn;
+      this.orgNr;
+    }
 
+    setOrgNr(value){
+      this.orgNr = value;
+    }
+  }
+  class ProjektDeltagare{
+    constructor(deltagarnamn){
+      this.deltagarnamn = deltagarnamn;
+      this.foretag;
+    }
+
+    setForetag(foretag){
+      this.foretag = foretag;
+    }
+  }
+  const foretag1 = new Foretag("HRC Bygg och Projekt AB");
+  console.log(foretag1);
+  foretag1.setOrgNr("559202-5711");
+  console.log(`Org.nr: ${foretag1.orgNr}`)
+  const deltagare1 = new ProjektDeltagare("Christian Hellberg");
+  console.log(deltagare1);
+  deltagare1.setForetag(foretag1);
+  console.log(deltagare1.foretag.orgNr)
+</script>
 </body>
 </html>
