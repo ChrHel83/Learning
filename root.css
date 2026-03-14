@@ -29,29 +29,33 @@
     box-sizing: border-box;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
-body, header, nav, main, div, section, span {
+body, header, main, footer, nav, div, section, span {
     margin: 0;
     padding: 0;
     font-family: "Manrope", sans-serif;
-    background-color: var(--clr-gray-800);
-    color: var(--clr-gray-200)
+    background-color: var(--clr-gray-100);
+    color: var(--clr-gray-800)
 }
 .wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  background-color: var(--clr-gray-800);
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 80px auto 80px;
+  margin: 0 auto;
   height: 100vh;
-  width: 400px;
 }
-.header{
-    width: 100%;
+header{
+    position: relative;
+    background-color: var(--clr-gray-700); 
+    border: 1px solid black;
+ }
+main{
+background-color: var(--clr-gray-200);
+        border: 1px solid black;
+        display: flex;
+        justify-content: center;
 }
-.kvalitet{
-    text-align: left;
-}
-.arbetsmiljo{
-    text-align: right;
+footer{
+    position: relative;
+background-color: var(--clr-gray-700);
+        border: 1px solid black;
+
 }
