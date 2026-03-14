@@ -7,31 +7,115 @@
     <title>Document</title>
 </head>
 <body>
+    <br><br>
 <div class="wrapper">
     <div id="box1"></div>
 </div>  
 <script>
+    class Box  {
+        constructor(){
+            this.posX;
+            this.posY;
+            this.box = document.getElementById("box1");
+        }
+        getPosX() {
+        return parseInt(window.getComputedStyle(this.box).getPropertyValue("left"),10);
+        }
+        setPosX(posX){
+            return this.box.style.left = posX + "px";
+        }
+                getPosY() {
+        return parseInt(window.getComputedStyle(this.box).getPropertyValue("top"),10);
+        }
+        setPosY(posY){
+            return this.box.style.top = posY + "px";
+        }
+        
+    }
      const box1 = document.getElementById("box1");
     let posX = parseInt(window.getComputedStyle(box1).getPropertyValue("left"),10);
+    let posY = parseInt(window.getComputedStyle(box1).getPropertyValue("top"),10);
+    let speed = 1;
 
-    
-    setTimeout(()=>{
-        box1.style.left = "400px";
-    },1000);
+    const boxen = new Box();
+   
+    for (let index = 0; index < 380; index++) {
+        
+        setTimeout(()=>{
+            return boxen.setPosX(index);
+        },index*3);
 
-    function moveBox1() {
-        console.log(posX);
-        posX = posX + 20;
+    }
+        for (let index = 0; index < 380; index++) {
+        
+        setTimeout(()=>{
+            return boxen.setPosY(index);
+        },index*3);
+        
+    }
+
+
+    function moveBox1r() {
+        if(posX >= 380){
+            return;
+        }
+        //console.log(posX);
+        posX = posX + speed;
         box1.style.left = posX + "px";
     }
+        function moveBox1l() {
+        //console.log(posX);
+        if(posX <= 0){
+            return;
+        }
+        posX = posX - speed;
+        box1.style.left = posX + "px";
+    }
+            function moveBox1u() {
+if(posY <=0){
+    return;
+}
+        posY = posY - speed;
+        box1.style.top = posY + "px";
+    }
+                function moveBox1d() {
+if(posY >= (380)){
+    return;
+}
+        posY = posY + speed;
+        box1.style.top = posY + "px";
+    }
+                    function moveBox1NE() {
+                        console.log("NE");
+if(posY >= (380)){
+    return;
+}
+        posY = posY + speed;
+        posX = posX + speed;
+        box1.style.top = posY + "px";
+                box1.style.left = posX + "px";
+    }
+    
     document.addEventListener("keydown", (e) => { 
         if(e.key === "ArrowRight" || e.code === "ArrowRight"){
-            moveBox1();
-        }});
+            moveBox1r();
+        }
+        if(e.key === "ArrowLeft" || e.code === "ArrowLeft"){
+            moveBox1l();
+        } 
+        if(e.key === "ArrowUp" || e.code === "ArrowUp"){
+            moveBox1u();
+        }
+        if(e.key === "ArrowDown" || e.code === "ArrowDown"){
+            moveBox1d();
+        }
+                if((e.key === "ArrowUp" || e.code === "ArrowUp") && (e.key ==="ArrowRight" || e.code==="ArrowRight")){
+            moveBox1NE();
+        }
+
+});
 
     
-
-    console.log(window.getComputedStyle(box1).getPropertyValue("left"))
 </script>  
 </body>
 </html>
