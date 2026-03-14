@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css">
+    <title>Document</title>
+</head>
+<body>
+<div class="wrapper">
+    <div id="box1"></div>
+</div>  
+<script>
+     const box1 = document.getElementById("box1");
+    let posX = parseInt(window.getComputedStyle(box1).getPropertyValue("left"),10);
+
+    
+    setTimeout(()=>{
+        box1.style.left = "400px";
+    },1000);
+
+    function moveBox1() {
+        console.log(posX);
+        posX = posX + 20;
+        box1.style.left = posX + "px";
+    }
+    document.addEventListener("keydown", (e) => { 
+        if(e.key === "ArrowRight" || e.code === "ArrowRight"){
+            moveBox1();
+        }});
+
+    
+
+    console.log(window.getComputedStyle(box1).getPropertyValue("left"))
+</script>  
+</body>
+</html>
