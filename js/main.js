@@ -1,4 +1,65 @@
 // Main js-file
+
+const box1 = document.getElementById("box1");
+  let posX = window.getComputedStyle(box1).getPropertyValue("left"); // Startposition X
+  let posY = window.getComputedStyle(box1).getPropertyValue("bottom"); // Startposition Y
+
+  const step = 10; // Hur många pixlar per knapptryck
+
+  // Lyssna på tangenttryckningar
+  document.addEventListener("keydown", (event) => {
+    switch (event.key) {
+      case "ArrowUp":
+        posY = Math.max(0, posY - step); // Förhindra att gå utanför toppen
+        break;
+      case "ArrowDown":
+        posY = Math.min(window.innerHeight - box1.offsetHeight, posY + step);
+        break;
+      case "ArrowLeft":
+        posX = Math.max(0, posX - step);
+        break;
+      case "ArrowRight":
+        posX = Math.min(window.innerWidth - box1.offsetWidth, posX + step);
+        break;
+      default:
+        return; // Ignorera andra tangenter
+    }
+    // Uppdatera position
+    box1.style.bottom = posY + "px";
+    box1.style.left = posX + "px";
+//box2.style.bottom = posY + "px";
+  //  box2.style.left = posX + "px";
+  });
+
+
+
+
+
+
+
+  /*
+const box = document.getElementById("box");
+  let posX = 0;       // Startposition
+  let speed = 1;      // Pixlar per frame
+
+  function moveBox() {
+    posX += speed;
+
+    // Om vi når kanten, vänd riktning
+    if (posX + box.offsetWidth >= container.offsetWidth || posX <= 0) {
+      speed *= -1;
+    }
+
+    box.style.left = posX + "px";
+
+    // Kör nästa frame
+ 
+  }
+  moveBox();
+  // Starta rörelsen
+
+
+
 class Project {
     #title;
     #createdDate;
@@ -7,11 +68,11 @@ class Project {
     constructor(title){
         this.#title = title;
         this.#createdDate = Date();
-        this.#participants = [];
+        this.#participants = [{firstName: "Random", lastName: "Randomsson"}];
     }
 
     addParticipant(participant){
-        this.#participants.push(participant);
+       return this.#participants.push(participant);
     }
     showParticipants(){
         return this.#participants;
@@ -46,7 +107,8 @@ console.log(myProject.showDateOfCreation());
     myProject.addParticipant(user);
     myProject.addParticipant(user2);
     console.log(myProject.showParticipants().forEach(participant => {
-        console.log(`${participant.firstName} ${participant.lastName}`);
+        if(participant !== null){
+        console.log(`${participant.firstName} ${participant.lastName}`);}
     }));
 
 /*import {ProjectParticipant} from "./ProjectParticipant.js";

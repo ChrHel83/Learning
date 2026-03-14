@@ -40,18 +40,31 @@ body, header, nav, main, div, section, span {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 0px;
   background-color: var(--clr-gray-800);
-  flex-direction: column;
   height: 100vh;
-  width: 400px;
 }
-.header{
-    width: 100%;
+#container {
+    position: relative;
+    width: 1200px;
+    height: 800px;
+    background-color: var(--clr-gray-700);
 }
-.kvalitet{
-    text-align: left;
+#box1 {
+    position: absolute;
+    bottom: 100px;
+    left: 200px;
+    width: 30px;
+    height: 100px;
+    background-color: var(--clr-gray-200);
+    border: 1px solid black;
 }
-.arbetsmiljo{
-    text-align: right;
+#box2 {
+    position: absolute;
+    bottom: 290px;
+    left: 10px;
+    width: 30px;
+    height: 100px;
+    background-color: var(--clr-gray-200);
+    border: 1px solid black;
 }
