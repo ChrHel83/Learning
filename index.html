@@ -15,7 +15,7 @@
 </div>  
 <script>
     class Ball{
-        constructor(ball){
+        constructor(ball, xAxis){
 
 this.ball = document.getElementById(ball);
 this.posY = 0;
@@ -23,6 +23,8 @@ this.posY = 0;
     this.gravity = 0.8;
     this.bounce = .9;
     this.floor = 380;
+    this.xAxis = xAxis;
+    this.ball.style.left = this.xAxis + "px";
         }
     bounceBall = () => {
         this.velocity += this.gravity;
@@ -37,9 +39,9 @@ this.posY = 0;
     }
         
     }
-    const ball1 = new Ball("ball1");
-    const ball2 = new Ball("ball2");
-    const ball3 = new Ball("ball3");
+    const ball1 = new Ball("ball1", 100);
+    const ball2 = new Ball("ball2", 200);
+    const ball3 = new Ball("ball3", 300);
     ball1.gravity = 1.4;
     ball1.bounceBall();
     ball2.bounce = 0.6;
